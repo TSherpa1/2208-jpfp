@@ -1,5 +1,8 @@
+const router = require("express").Router();
+const campuses = require("./campuses");
+const students = require("./students");
 
-const router = require('express').Router();
-
+router.use("/campuses", campuses);
+router.use("/students", students);
 
 module.exports = router;
