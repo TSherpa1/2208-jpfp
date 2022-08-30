@@ -8,7 +8,7 @@ function Campuses() {
   return (
     <div>
       <ul>
-        <h1>Campuses</h1>
+        <h1>Campuses: </h1>
         {campuses &&
           campuses.map((campus) => <Campus key={campus.id} data={campus} />)}
       </ul>

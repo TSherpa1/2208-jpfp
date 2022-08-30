@@ -1,12 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function EnrolledStudents(props) {
   const student = props.data;
+
   return (
     <li>
-      <p>
+      <Link to={`/students/${student.id}`}>
         {student.firstName} {student.lastName}
-      </p>
+      </Link>
     </li>
   );
 }

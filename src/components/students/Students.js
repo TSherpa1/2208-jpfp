@@ -5,7 +5,7 @@ import Student from "./Student";
 
 function Students() {
   const students = useSelector((state) => state.allStudents);
-  console.log("students:", students);
+
   return (
     <div>
       <h1>Students:</h1>
