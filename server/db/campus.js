@@ -12,7 +12,7 @@ const Campus = db.define("campus", {
   imageUrl: {
     type: Sequelize.TEXT,
     defaultValue:
-      "https://www.istockphoto.com/photo/quandrangle-lawn-at-the-university-of-washington-gm157505397-10826173",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRT4jkobzDYfkgI5rePBwoap1PSrWbl6bG0WQ&usqp=CAU",
   },
   address: {
     type: Sequelize.STRING,

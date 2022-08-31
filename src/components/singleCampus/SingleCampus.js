@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getCampus } from "../../store/campusStores/singleCampusStore";
-import EnrolledStudents from "./EnrolledStudents";
+import Campus from "./Campus";
 
 function SingleCampus() {
   const campus = useSelector((state) => state.singleCampus);
@@ -13,27 +13,7 @@ function SingleCampus() {
     dispatch(getCampus(params.id));
   }, []);
 
-  return (
-    <div>
-      <h1>{campus.name}</h1>
-      <img src={campus.imageUrl} width="600"></img>
-      <h3>{campus.address}</h3>
-      <p>{campus.description}</p>
-      <ul>
-        <h4>
-          {campus.students && campus.students.length > 0
-            ? `Enrolled Students 
-          (${campus.students && campus.students.length}):`
-            : "There are no students enrolled into this university yet!"}
-        </h4>
-
-        {campus.students &&
-          campus.students.map((student) => (
-            <EnrolledStudents key={student.id} data={student} />
-          ))}
-      </ul>
-    </div>
-  );
+  return <Campus campus={campus} />;
 }
 
 export default SingleCampus;

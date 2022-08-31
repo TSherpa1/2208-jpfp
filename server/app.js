@@ -20,12 +20,14 @@ app.use("/api", index);
 
 //* added to send index.html file (the single page which serves as the foundation of your app) to the server (without this you just hit the 404 route below regardless of your react routes)
 //the server never runs your client side js code if it doesn't hit this route
-app.use("*", (req, res) => {
+app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "..", "/public/index.html"));
 });
 
-app.use("*", (req, res, next) => {
-  res.status(404).send("Page Not Found!");
+app.use((req, res, next) => {
+  const error = Error("page not found");
+  error.status = 404;
+  next(error);
 });
 
 app.use((err, req, res, next) => {

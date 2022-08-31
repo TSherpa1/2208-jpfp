@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 function Campus(props) {
   let campus = props.data;
+  let students = campus.students || [];
   return (
     <div>
       <li>
@@ -10,8 +11,8 @@ function Campus(props) {
           <h2>{campus.name}</h2>
         </Link>
         <h3>
-          {campus.students.length} Student
-          {campus.students.length === 1 ? "" : "s"} Enrolled
+          {students.length} Student
+          {students.length === 1 ? "" : "s"} Enrolled
         </h3>
         <img src={campus.imageUrl} width="600"></img>
       </li>
