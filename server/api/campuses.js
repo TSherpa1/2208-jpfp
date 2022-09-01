@@ -38,4 +38,18 @@ router.post("/", async (req, res, next) => {
   }
 });
 
+router.delete("/:id", async (req, res, next) => {
+  try {
+    const campusToRemove = await Campus.findByPk(req.params.id);
+    if (!campusToRemove) {
+      res.status(404).send("<h1>Campus not found!</h1>");
+    } else {
+      await campusToRemove.destroy();
+      res.send(campusToRemove);
+    }
+  } catch (error) {
+    next(error);
+  }
+});
+
 module.exports = router;

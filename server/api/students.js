@@ -20,7 +20,7 @@ router.get("/:id", async (req, res, next) => {
       include: Campus,
     });
     if (!student) {
-      res.status(404).send("<h1>Campus doesn't exist!</h1>");
+      res.status(404).send("<h1>Student doesn't exist!</h1>");
     } else {
       res.status(200).send(student);
     }
@@ -33,6 +33,21 @@ router.post("/", async (req, res, next) => {
   try {
     let newStudent = await Student.create(req.body);
     res.status(201).send(newStudent);
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.delete("/:id", async (req, res, next) => {
+  try {
+    const studentToRemove = await Student.findByPk(req.params.id);
+    if (!studentToRemove) {
+      res.status(404).send("<h1>Student not found!</h1>");
+    } else {
+      await studentToRemove.destroy();
+      //setting status of 204 prevented the studentToRemove from being sent
+      res.send(studentToRemove);
+    }
   } catch (error) {
     next(error);
   }

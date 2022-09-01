@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import DeleteCampus from "./DeleteCampus";
 
 function Campus(props) {
   let campus = props.data;
@@ -16,6 +17,8 @@ function Campus(props) {
         </h3>
         <img src={campus.imageUrl} width="600"></img>
       </li>
+      <h4>Remove Campus</h4>
+      <DeleteCampus campusId={campus.id} />
     </div>
   );
 }
