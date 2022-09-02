@@ -20,7 +20,7 @@ const syncAndSeed = async () => {
     let currentStudent = await Student.create(student);
     //using whatever current student was created and setting their campus to a random campus depending on the campuses' id
     await currentStudent.setCampus(
-      await Campus.findByPk(Math.floor(Math.random() * 5) + 1)
+      await Campus.findByPk(Math.floor(Math.random() * campusesData.length) + 1)
     );
   });
 

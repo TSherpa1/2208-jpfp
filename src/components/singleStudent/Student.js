@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import UpdateStudentForm from "./UpdateStudentForm";
 
 function Student(props) {
   let student = props.student;
@@ -24,6 +25,7 @@ function Student(props) {
           university!
         </p>
       )}
+      <UpdateStudentForm student={student} />
     </div>
   );
 }

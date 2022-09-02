@@ -27,7 +27,7 @@ function AddCampusForm() {
         description,
         imageUrl,
       };
-      dispatch(createCampus(newCampus));
+      dispatch(addCampus(newCampus));
     }
     setName("");
     setAddress("");
@@ -62,6 +62,7 @@ function AddCampusForm() {
     <form id="add-campus" onSubmit={handleSubmit}>
       <label htmlFor="name">Name</label>
       <input
+        id="name"
         name="name"
         value={name}
         placeholder="Name"
@@ -70,6 +71,7 @@ function AddCampusForm() {
 
       <label htmlFor="address">Address</label>
       <input
+        id="address"
         name="address"
         value={address}
         placeholder="Address"
@@ -78,6 +80,7 @@ function AddCampusForm() {
 
       <label htmlFor="description">Description</label>
       <input
+        id="description"
         name="description"
         value={description}
         placeholder="Description"
@@ -86,6 +89,7 @@ function AddCampusForm() {
 
       <label htmlFor="imageUrl">Image</label>
       <input
+        id="imageUrl"
         name="imageUrl"
         value={imageUrl}
         placeholder="Image"
@@ -98,10 +102,3 @@ function AddCampusForm() {
 }
 
 export default AddCampusForm;
-
-//create a form
-//  -inputs: Name, address, imageUrl, description
-
-//  -relate the different parts of the form to handleChanges
-
-//  submit button will dispatch the createCampus thunk in the store

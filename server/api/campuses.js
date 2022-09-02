@@ -52,4 +52,18 @@ router.delete("/:id", async (req, res, next) => {
   }
 });
 
+router.put("/:id", async (req, res, next) => {
+  try {
+    const campusToUpdate = await Campus.findByPk(req.params.id);
+    if (!campusToUpdate) {
+      res.status(404).send("<h1>Campus not found!</h1>");
+    } else {
+      await campusToUpdate.update(req.body);
+      res.send(campusToUpdate);
+    }
+  } catch (error) {
+    next(error);
+  }
+});
+
 module.exports = router;

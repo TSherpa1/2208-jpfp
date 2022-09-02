@@ -3,6 +3,7 @@ import axios from "axios";
 const GET_ALL_CAMPUSES = "GET_ALL_CAMPUSES";
 const ADD_CAMPUS = "ADD_CAMPUS";
 const DELETE_CAMPUS = "DELETE_CAMPUS";
+const UPDATE_CAMPUS = "UPDATE_CAMPUS";
 
 const _getCampuses = (campuses) => ({
   type: GET_ALL_CAMPUSES,
