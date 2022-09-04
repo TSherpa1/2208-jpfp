@@ -1,90 +1,95 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { addStudent } from "../../store/studentStores/studentsStore";
 
 function AddStudentForm() {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [imageUrl, setImageUrl] = useState("");
-  const [gpa, setGPA] = useState("");
+  const studentValues = {
+    firstName: "",
+    lastName: "",
+    email: "",
+    imageUrl: "",
+    gpa: "",
+  };
+  const [formInputs, setFormInputs] = useState(studentValues);
+  const [formErrors, setFormErrors] = useState({});
 
   const dispatch = useDispatch();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (imageUrl === "" || !imageUrl) {
-      let newStudent = {
-        firstName,
-        lastName,
-        email,
-        gpa,
-      };
-      dispatch(addStudent(newStudent));
-    } else {
-      let newStudent = {
-        firstName,
-        lastName,
-        email,
-        imageUrl,
-        gpa,
-      };
-      dispatch(addStudent(newStudent));
+    if (formInputs.imageUrl === "") {
+      delete formInputs.imageUrl;
     }
-    setFirstName("");
-    setLastName("");
-    setEmail("");
-    setGPA("");
-    setImageUrl("");
+    if (formInputs.gpa === "") {
+      delete formInputs.gpa;
+    }
+    setFormErrors(validateForm(formInputs));
+    dispatch(addStudent(formInputs));
+    setFormInputs(studentValues);
   };
 
-  const handleFirstName = (event) => {
-    setFirstName(event.target.value);
+  const handleChange = (event) => {
+    setFormInputs({
+      ...formInputs,
+      [event.target.name]: event.target.value,
+    });
   };
-  const handleLastName = (event) => {
-    setLastName(event.target.value);
+
+  //refer to add campus form for validation explanation
+  const validateForm = (inputs) => {
+    const errorMessages = {};
+    if (!inputs.firstName) {
+      errorMessages.firstName = "Please enter a first name";
+    }
+    if (!inputs.lastName) {
+      errorMessages.lastName = "Please enter a last name";
+    }
+    if (!inputs.email) {
+      errorMessages.email = "Please enter an email";
+    }
+    return errorMessages;
   };
-  const handleEmail = (event) => {
-    setEmail(event.target.value);
-  };
-  const handleImageUrl = (event) => {
-    setImageUrl(event.target.value);
-  };
-  const handleGPA = (event) => {
-    setGPA(event.target.value);
-  };
+
   return (
     <form id="add-student" onSubmit={handleSubmit}>
       <label htmlFor="firstName">First Name</label>
       <input
-        name="firstName "
-        value={firstName}
+        name="firstName"
+        value={formInputs.firstName}
         placeholder="First Name"
-        onChange={handleFirstName}
+        onChange={handleChange}
       />
+      <p>{formErrors.firstName}</p>
       <label htmlFor="lastName">Last Name</label>
       <input
-        name="lastName "
-        value={lastName}
+        name="lastName"
+        value={formInputs.lastName}
         placeholder="Last Name"
-        onChange={handleLastName}
+        onChange={handleChange}
       />
+      <p>{formErrors.lastName}</p>
       <label htmlFor="email">Email</label>
       <input
-        name="email "
-        value={email}
+        name="email"
+        value={formInputs.email}
         placeholder="Email"
-        onChange={handleEmail}
+        onChange={handleChange}
       />
+      <p>{formErrors.email}</p>
       <label htmlFor="imageUrl">Image</label>
       <input
-        name="imageUrl "
-        value={imageUrl}
+        name="imageUrl"
+        value={formInputs.imageUrl}
         placeholder="Image"
-        onChange={handleImageUrl}
+        onChange={handleChange}
       />
       <label htmlFor="gpa">GPA</label>
-      <input name="gpa " value={gpa} placeholder="GPA" onChange={handleGPA} />
+      <input
+        name="gpa"
+        value={formInputs.gpa}
+        placeholder="GPA"
+        onChange={handleChange}
+      />
       <button type="submit">Add New Student</button>
     </form>
   );

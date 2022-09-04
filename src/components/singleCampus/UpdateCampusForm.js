@@ -8,83 +8,63 @@ import {
 function UpdateCampusForm(props) {
   const campus = props.campus;
 
-  const [name, setName] = useState(campus.name);
-  const [address, setAddress] = useState(campus.address);
-  const [description, setDescription] = useState(campus.description);
-  const [imageUrl, setImageUrl] = useState(campus.imageUrl);
+  //formInputs will be the entire campus object, but you're going to be getting out the name, address, imageUrl, description (formInputs.campus)
+  const [formInputs, setFormInputs] = useState(campus);
+  const [formErrors, setFormErrors] = useState({});
 
   //this useEffect is needed to preload data onto the form (when campus changes, you're going to change the state of all these), this is needed as you are going to have undefined values at first for all your states and only during the second render (once campus is defined) will you have all those values
   useEffect(() => {
-    setName(campus.name);
-    setAddress(campus.address);
-    setDescription(campus.description);
-    setImageUrl(campus.imageUrl);
+    setFormInputs(campus);
   }, [campus]);
 
   const dispatch = useDispatch();
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    let newCampus = {
-      name,
-      address,
-      description,
-      imageUrl,
-    };
-    async function runDispatch() {
-      //spreading everything currently in campus and adding any new changes coming from newCampus
-      await dispatch(updateCampus({ ...campus, ...newCampus }));
-      //needed to run getCampus after bc the express route that updateCampus uses doesn't eager load the students, so after the campusUpdates, just use the get route to get the students
-      await dispatch(getCampus(campus.id));
-    }
+    // setFormErrors(validateForm(formInputs))
     //Occasionally, the getCampus runs before the updateCampus, putting both in an async function and awaiting both made to where updateCampus ran and completed before getCampus
-    runDispatch();
-    //ask if this counts as a refresh of the page, according to the instructions updates should happen without any page refreshes (manual or auto)
+    await dispatch(updateCampus(formInputs));
+    //needed to run getCampus after bc the express route that updateCampus uses doesn't eager load the students, so after the campusUpdates, just use the get route to get the students
+    await dispatch(getCampus(campus.id));
+    //the page rerenders automatically (after running the update dispatch on line 60)
   };
 
-  const handleName = (event) => {
-    setName(event.target.value);
-  };
-
-  const handleAddress = (event) => {
-    setAddress(event.target.value);
-  };
-
-  const handleDescription = (event) => {
-    setDescription(event.target.value);
-  };
-
-  const handleImageUrl = (event) => {
-    setImageUrl(event.target.value);
+  const handleChange = (event) => {
+    setFormInputs({ ...formInputs, [event.target.name]: event.target.value });
   };
 
   return (
     <form id="update-campus" onSubmit={handleSubmit}>
       <label htmlFor="name">Name </label>
-      <input id="name" name="name" value={name || ""} onChange={handleName} />
+      <input
+        id="name"
+        name="name"
+        value={formInputs.name || ""}
+        onChange={handleChange}
+      />
 
       <label htmlFor="address">Address </label>
       <input
         id="address"
         name="address"
-        value={address || ""}
-        onChange={handleAddress}
+        value={formInputs.address || ""}
+        onChange={handleChange}
       />
 
       <label htmlFor="description">Description </label>
       <input
         id="description"
         name="description"
-        value={description || ""}
-        onChange={handleDescription}
+        value={formInputs.description || ""}
+        onChange={handleChange}
       />
 
       <label htmlFor="imageUrl">Image </label>
       <input
         id="imageUrl"
         name="imageUrl"
-        value={imageUrl || ""}
-        onChange={handleImageUrl}
+        value={formInputs.imageUrl || ""}
+        onChange={handleChange}
       />
 
       <button type="submit">Update Campus</button>

@@ -29,7 +29,7 @@ export const updateStudent = (student) => {
     // console.log("student", student);
     try {
       const { data } = await axios.put(`/api/students/${student.id}`, student);
-      console.log("update student:", data);
+      // console.log("update student:", data);
       dispatch(_updateStudent(data));
     } catch (error) {
       console.log(error);

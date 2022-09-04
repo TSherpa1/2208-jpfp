@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { updateStudent } from "../../store/studentStores/singleStudentStore";
 import { getCampus } from "../../store/campusStores/singleCampusStore";
@@ -7,6 +7,10 @@ function UnregisterStudent(props) {
   const student = props.student;
 
   const dispatch = useDispatch();
+
+  // useEffect(() => {
+  //   console.log("useEffect ran");
+  // }, [student]);
 
   const handleClick = async (event) => {
     event.preventDefault();

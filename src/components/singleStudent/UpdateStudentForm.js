@@ -7,89 +7,70 @@ import { useDispatch } from "react-redux";
 
 function UpdateStudentForm(props) {
   const student = props.student;
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [imageUrl, setImageUrl] = useState("");
-  const [gpa, setGPA] = useState("");
 
+  //setting the state to the student object
+  const [formInputs, setFormInputs] = useState(student);
+  //preloading data onto form
   useEffect(() => {
-    setFirstName(student.firstName);
-    setLastName(student.lastName);
-    setEmail(student.email);
-    setImageUrl(student.imageUrl);
-    setGPA(student.gpa);
+    setFormInputs(student);
   }, [student]);
 
   const dispatch = useDispatch();
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    let newStudent = {
-      firstName,
-      lastName,
-      email,
-      imageUrl,
-      gpa,
-    };
-    async function runDispatch() {
-      await dispatch(updateStudent({ ...student, ...newStudent }));
-      await dispatch(getStudent(student.id));
-    }
-    runDispatch();
+    // setFormErrors(validateForm(formInputs))
+    await dispatch(updateStudent(formInputs));
+    await dispatch(getStudent(student.id));
   };
 
-  const handleFirstName = (event) => {
-    setFirstName(event.target.value);
+  const handleChange = (event) => {
+    console.log(event.target.value);
+    //spread the state of the existing data, but set the particular particular attribute to the value entered in
+    setFormInputs({ ...formInputs, [event.target.name]: event.target.value });
   };
-  const handleLastName = (event) => {
-    setLastName(event.target.value);
-  };
-  const handleEmail = (event) => {
-    setEmail(event.target.value);
-  };
-  const handleImageUrl = (event) => {
-    setImageUrl(event.target.value);
-  };
-  const handleGPA = (event) => {
-    setGPA(event.target.value);
-  };
+
   return (
     <form id="add-student" onSubmit={handleSubmit}>
       <label htmlFor="firstName">First Name</label>
       <input
-        name="firstName "
-        value={firstName || ""}
+        id="firstName"
+        name="firstName"
+        value={formInputs.firstName || ""}
         placeholder="First Name"
-        onChange={handleFirstName}
+        onChange={handleChange}
       />
       <label htmlFor="lastName">Last Name</label>
       <input
-        name="lastName "
-        value={lastName || ""}
+        id="lastName"
+        name="lastName"
+        value={formInputs.lastName || ""}
         placeholder="Last Name"
-        onChange={handleLastName}
+        onChange={handleChange}
       />
       <label htmlFor="email">Email</label>
       <input
-        name="email "
-        value={email || ""}
+        id="email"
+        name="email"
+        value={formInputs.email || ""}
         placeholder="Email"
-        onChange={handleEmail}
+        onChange={handleChange}
       />
       <label htmlFor="imageUrl">Image</label>
       <input
-        name="imageUrl "
-        value={imageUrl || ""}
+        id="imageUrl"
+        name="imageUrl"
+        value={formInputs.imageUrl || ""}
         placeholder="Image"
-        onChange={handleImageUrl}
+        onChange={handleChange}
       />
       <label htmlFor="gpa">GPA</label>
       <input
-        name="gpa "
-        value={gpa || ""}
+        id="gpa"
+        name="gpa"
+        value={formInputs.gpa || ""}
         placeholder="GPA"
-        onChange={handleGPA}
+        onChange={handleChange}
       />
       <button type="submit">Add New Student</button>
     </form>
