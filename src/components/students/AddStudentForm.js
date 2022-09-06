@@ -57,6 +57,9 @@ function AddStudentForm() {
     if (!inputs.email) {
       errorMessages.email = "Please enter an email!";
     }
+    if (!inputs.campusId) {
+      errorMessages.campusId = "Please select a campus!";
+    }
     return errorMessages;
   };
 
@@ -115,7 +118,7 @@ function AddStudentForm() {
               </option>
             ))}
         </select>
-
+        <p>{formErrors.campusId}</p>
         <button type="submit">Add New Student</button>
       </form>
     </div>

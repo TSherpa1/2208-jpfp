@@ -77,13 +77,21 @@ function UpdateStudentForm(props) {
       <label htmlFor="campusId">Select a campus</label>
 
       <select name="campusId" id="campusId" onChange={handleChange}>
-        <option defaultValue="">Select Campus</option>
+        <option defaultValue={student && student.campusId}>
+          {student.campus && student.campus.name}
+        </option>
         {campuses &&
-          campuses.map((campus) => (
-            <option name="campusId" value={campus.id} key={campus.id}>
-              {campus.name}
-            </option>
-          ))}
+          campuses
+            .filter((campus) => campus.id !== student.campusId)
+            .map((filteredCampus) => (
+              <option
+                name="campusId"
+                value={filteredCampus.id}
+                key={filteredCampus.id}
+              >
+                {filteredCampus.name}
+              </option>
+            ))}
       </select>
       <button type="submit">Update Student</button>
     </form>

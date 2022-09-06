@@ -90,8 +90,8 @@ img {
 
 #remove-student button {
   height: 22px;
-  margin-top: 20px;
-  margin-right: 50px;
+  margin-top: 28px;
+  margin-right: 90px;
 }
 #remove-student h4 {
   margin-top: 20px;
@@ -117,6 +117,10 @@ img {
 
 #add-student-form input {
   margin-bottom: 10px;
+}
+
+#add-student-form p {
+  margin-bottom: 20px;
 }
 
 #add-student-form select {
@@ -171,6 +175,10 @@ img {
   margin-bottom: 10px;
 }
 
+#update-student select {
+  margin-bottom: 10px;
+}
+
 /*all campuses page*/
 
 #all-campuses {
@@ -204,7 +212,6 @@ img {
   flex-direction: column;
   width: 500px;
   margin-top: 100px;
-
   background-color: rgb(18, 200, 149);
   padding: 30px;
   height: fit-content;
@@ -218,6 +225,10 @@ img {
 
 #add-campus-form input {
   margin-bottom: 10px;
+}
+
+#add-campus-form p {
+  margin-bottom: 20px;
 }
 
 #add-campus h2 {
