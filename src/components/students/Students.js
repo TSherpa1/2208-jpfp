@@ -17,9 +17,9 @@ function Students() {
               <Student key={student.id} data={student} />
             ))}
         </ul>
-        <Link className="home-link" to="/">
+        {/* <Link className="home-link" to="/">
           Go To Home Page
-        </Link>
+        </Link> */}
       </div>
       <AddStudentForm />
     </div>

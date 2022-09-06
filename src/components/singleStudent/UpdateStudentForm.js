@@ -3,10 +3,11 @@ import {
   updateStudent,
   getStudent,
 } from "../../store/studentStores/singleStudentStore";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 function UpdateStudentForm(props) {
   const student = props.student;
+  const campuses = useSelector((state) => state.allCampuses);
 
   //setting the state to the student object
   const [formInputs, setFormInputs] = useState(student);
@@ -73,6 +74,17 @@ function UpdateStudentForm(props) {
         placeholder="GPA"
         onChange={handleChange}
       />
+      <label htmlFor="campusId">Select a campus</label>
+
+      <select name="campusId" id="campusId" onChange={handleChange}>
+        <option defaultValue="">Select Campus</option>
+        {campuses &&
+          campuses.map((campus) => (
+            <option name="campusId" value={campus.id} key={campus.id}>
+              {campus.name}
+            </option>
+          ))}
+      </select>
       <button type="submit">Update Student</button>
     </form>
   );

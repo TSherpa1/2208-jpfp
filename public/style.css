@@ -119,6 +119,10 @@ img {
   margin-bottom: 10px;
 }
 
+#add-student-form select {
+  margin-bottom: 10px;
+}
+
 #add-student h2 {
   margin-bottom: 20px;
 }

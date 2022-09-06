@@ -5,8 +5,7 @@ import { useSelector } from "react-redux";
 function Navbar() {
   const campuses = useSelector((state) => state.allCampuses);
   const students = useSelector((state) => state.allStudents);
-  console.log(campuses);
-  console.log(students);
+
   return (
     <div className="navbar">
       <button>

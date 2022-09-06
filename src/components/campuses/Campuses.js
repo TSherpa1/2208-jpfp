@@ -14,7 +14,9 @@ function Campuses() {
           {campuses &&
             campuses.map((campus) => <Campus key={campus.id} data={campus} />)}
         </ul>
-        <Link to="/">Go To Home Page</Link>
+        {/* <Link className="home-link" to="/">
+          Go To Home Page
+        </Link> */}
       </div>
       <AddCampusForm />
     </div>

@@ -1,14 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { addStudent } from "../../store/studentStores/studentsStore";
+import { useSelector } from "react-redux";
 
 function AddStudentForm() {
+  const campuses = useSelector((state) => state.allCampuses);
+  const students = useSelector((state) => state.allStudents);
+  console.log(students);
   const studentValues = {
     firstName: "",
     lastName: "",
     email: "",
     imageUrl: "",
     gpa: "",
+    campusId: "",
   };
   const [formInputs, setFormInputs] = useState(studentValues);
   const [formErrors, setFormErrors] = useState({});
@@ -34,6 +39,11 @@ function AddStudentForm() {
       [event.target.name]: event.target.value,
     });
   };
+
+  // const handleSelect = (event) => {
+  //   console.log("name:", event.target.name);
+  //   console.log("value:", event.target.value);
+  // };
 
   //refer to add campus form for validation explanation
   const validateForm = (inputs) => {
@@ -94,6 +104,18 @@ function AddStudentForm() {
           onChange={handleChange}
         />
         <p></p>
+        <label htmlFor="campusId">Select a campus</label>
+
+        <select name="campusId" id="campusId" onChange={handleChange}>
+          <option defaultValue="">Select Campus</option>
+          {campuses &&
+            campuses.map((campus) => (
+              <option name="campusId" value={campus.id} key={campus.id}>
+                {campus.name}
+              </option>
+            ))}
+        </select>
+
         <button type="submit">Add New Student</button>
       </form>
     </div>
