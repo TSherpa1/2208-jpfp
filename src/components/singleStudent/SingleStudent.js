@@ -16,7 +16,7 @@ function SingleStudent() {
   }, []);
 
   useEffect(() => {
-    if (params.id > students.length) {
+    if (students.length > 0 && params.id > students.length) {
       navigate("*");
     }
   }, [students.length]);

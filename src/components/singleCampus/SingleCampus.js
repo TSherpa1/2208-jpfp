@@ -16,9 +16,11 @@ function SingleCampus() {
   useEffect(() => {
     dispatch(getCampus(params.id));
   }, []);
+  console.log("params", params.id);
+  console.log("campus length", campuses.length);
 
   useEffect(() => {
-    if (params.id > campuses.length) {
+    if (campus.length > 0 && params.id > campuses.length) {
       navigate("*");
     }
   }, [campuses.length]);
