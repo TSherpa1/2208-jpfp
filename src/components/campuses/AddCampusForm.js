@@ -35,10 +35,10 @@ function AddCampusForm() {
     //epmty strings are falsey, so if the field is an empty string(which is the default state)
     if (!inputs.name) {
       //set an errors.name property equal to the string below, this will be rendered out in the p tags in your component's return statement (formErrors.name)
-      errors.name = "Please enter a campus name!";
+      errorMessages.name = "Please enter a campus name!";
     }
     if (!inputs.address) {
-      errors.address = "Please enter an address!";
+      errorMessages.address = "Please enter an address!";
     }
     //return the object after
     return errorMessages;
@@ -46,46 +46,49 @@ function AddCampusForm() {
   };
 
   return (
-    <form id="add-campus" onSubmit={handleSubmit}>
-      <label htmlFor="name">Name</label>
-      <input
-        id="name"
-        name="name"
-        //pass formInputs.name to the value property
-        value={formInputs.name}
-        placeholder="Name"
-        onChange={handleChange}
-      />
-      <p>{formErrors.name}</p>
-      <label htmlFor="address">Address</label>
-      <input
-        id="address"
-        name="address"
-        value={formInputs.address}
-        placeholder="Address"
-        onChange={handleChange}
-      />
-      <p>{formErrors.address}</p>
-      <label htmlFor="description">Description</label>
-      <input
-        id="description"
-        name="description"
-        value={formInputs.description}
-        placeholder="Description"
-        onChange={handleChange}
-      />
+    <div id="add-campus">
+      <form id="add-campus-form" onSubmit={handleSubmit}>
+        <h2>Add Campus</h2>
+        <label htmlFor="name">Name</label>
+        <input
+          id="name"
+          name="name"
+          //pass formInputs.name to the value property
+          value={formInputs.name}
+          placeholder="Name"
+          onChange={handleChange}
+        />
+        <p>{formErrors.name}</p>
+        <label htmlFor="address">Address</label>
+        <input
+          id="address"
+          name="address"
+          value={formInputs.address}
+          placeholder="Address"
+          onChange={handleChange}
+        />
+        <p>{formErrors.address}</p>
+        <label htmlFor="description">Description</label>
+        <input
+          id="description"
+          name="description"
+          value={formInputs.description}
+          placeholder="Description"
+          onChange={handleChange}
+        />
 
-      <label htmlFor="imageUrl">Image</label>
-      <input
-        id="imageUrl"
-        name="imageUrl"
-        value={formInputs.imageUrl}
-        placeholder="Image"
-        onChange={handleChange}
-      />
+        <label htmlFor="imageUrl">Image</label>
+        <input
+          id="imageUrl"
+          name="imageUrl"
+          value={formInputs.imageUrl}
+          placeholder="Image"
+          onChange={handleChange}
+        />
 
-      <button type="submit">Add New Campus</button>
-    </form>
+        <button type="submit">Add New Campus</button>
+      </form>
+    </div>
   );
 }
 

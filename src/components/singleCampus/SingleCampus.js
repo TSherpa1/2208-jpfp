@@ -15,18 +15,20 @@ function SingleCampus() {
   }, []);
 
   return (
-    <div>
-      <h1>{campus.name}</h1>
-      <img src={campus.imageUrl} width="600"></img>
-      <h3>{campus.address}</h3>
-      <p>{campus.description}</p>
-      <ul>
+    <div id="single-campus">
+      <div id="campus-info">
+        <h1>{campus.name}</h1>
+        <img src={campus.imageUrl} width="600"></img>
+        <h3>{campus.address}</h3>
+        <p>{campus.description}</p>
         <h4>
           {campus.students && campus.students.length > 0
             ? `Enrolled Students 
       (${campus.students && campus.students.length}):`
             : "There are no students enrolled into this university yet!"}
         </h4>
+      </div>
+      <ul id="enrolled-students">
         {campus.students &&
           campus.students.map((student) => (
             <EnrolledStudents key={student.id} data={student} />

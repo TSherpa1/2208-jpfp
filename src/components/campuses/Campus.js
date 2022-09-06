@@ -17,8 +17,10 @@ function Campus(props) {
         </h3>
         <img src={campus.imageUrl} width="600"></img>
       </li>
-      <h4>Remove Campus</h4>
-      <DeleteCampus campusId={campus.id} />
+      <div id="delete-campus">
+        <h4>Remove Campus</h4>
+        <DeleteCampus campusId={campus.id} />
+      </div>
     </div>
   );
 }

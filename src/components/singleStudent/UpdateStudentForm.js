@@ -31,7 +31,8 @@ function UpdateStudentForm(props) {
   };
 
   return (
-    <form id="add-student" onSubmit={handleSubmit}>
+    <form id="update-student" onSubmit={handleSubmit}>
+      <h2>Update Student</h2>
       <label htmlFor="firstName">First Name</label>
       <input
         id="firstName"
@@ -72,7 +73,7 @@ function UpdateStudentForm(props) {
         placeholder="GPA"
         onChange={handleChange}
       />
-      <button type="submit">Add New Student</button>
+      <button type="submit">Update Student</button>
     </form>
   );
 }

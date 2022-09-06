@@ -8,16 +8,20 @@ function Students() {
   const students = useSelector((state) => state.allStudents);
 
   return (
-    <div>
-      <h1>Students:</h1>
-      <ul>
-        {students &&
-          students.map((student) => (
-            <Student key={student.id} data={student} />
-          ))}
-      </ul>
+    <div id="all-students">
+      <div id="students-list">
+        <h1>Students</h1>
+        <ul>
+          {students &&
+            students.map((student) => (
+              <Student key={student.id} data={student} />
+            ))}
+        </ul>
+        <Link className="home-link" to="/">
+          Go To Home Page
+        </Link>
+      </div>
       <AddStudentForm />
-      <Link to="/">Go To Home Page</Link>
     </div>
   );
 }

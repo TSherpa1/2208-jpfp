@@ -7,15 +7,17 @@ function Student(props) {
   return (
     <>
       <li>
-        <h3>
+        <h3 className="student-name">
           <Link to={`/students/${student.id}`}>
             {student.firstName} {student.lastName}
           </Link>
         </h3>
         <img src={student.imageUrl} width="220" height="220" />
       </li>
-      <h4>Remove Student: </h4>
-      <DeleteStudent studentId={student.id} />
+      <div id="remove-student">
+        <h4>Remove Student </h4>
+        <DeleteStudent studentId={student.id} />
+      </div>
     </>
   );
 }

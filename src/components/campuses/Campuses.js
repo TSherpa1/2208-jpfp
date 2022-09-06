@@ -7,14 +7,16 @@ import AddCampusForm from "./AddCampusForm";
 function Campuses() {
   const campuses = useSelector((state) => state.allCampuses);
   return (
-    <div>
-      <ul>
-        <h1>Campuses: </h1>
-        {campuses &&
-          campuses.map((campus) => <Campus key={campus.id} data={campus} />)}
-      </ul>
+    <div id="all-campuses">
+      <div id="campus-list">
+        <ul>
+          <h1>Campuses: </h1>
+          {campuses &&
+            campuses.map((campus) => <Campus key={campus.id} data={campus} />)}
+        </ul>
+        <Link to="/">Go To Home Page</Link>
+      </div>
       <AddCampusForm />
-      <Link to="/">Go To Home Page</Link>
     </div>
   );
 }

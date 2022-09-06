@@ -39,59 +39,64 @@ function AddStudentForm() {
   const validateForm = (inputs) => {
     const errorMessages = {};
     if (!inputs.firstName) {
-      errorMessages.firstName = "Please enter a first name";
+      errorMessages.firstName = "Please enter a first name!";
     }
     if (!inputs.lastName) {
-      errorMessages.lastName = "Please enter a last name";
+      errorMessages.lastName = "Please enter a last name!";
     }
     if (!inputs.email) {
-      errorMessages.email = "Please enter an email";
+      errorMessages.email = "Please enter an email!";
     }
     return errorMessages;
   };
 
   return (
-    <form id="add-student" onSubmit={handleSubmit}>
-      <label htmlFor="firstName">First Name</label>
-      <input
-        name="firstName"
-        value={formInputs.firstName}
-        placeholder="First Name"
-        onChange={handleChange}
-      />
-      <p>{formErrors.firstName}</p>
-      <label htmlFor="lastName">Last Name</label>
-      <input
-        name="lastName"
-        value={formInputs.lastName}
-        placeholder="Last Name"
-        onChange={handleChange}
-      />
-      <p>{formErrors.lastName}</p>
-      <label htmlFor="email">Email</label>
-      <input
-        name="email"
-        value={formInputs.email}
-        placeholder="Email"
-        onChange={handleChange}
-      />
-      <p>{formErrors.email}</p>
-      <label htmlFor="imageUrl">Image</label>
-      <input
-        name="imageUrl"
-        value={formInputs.imageUrl}
-        placeholder="Image"
-        onChange={handleChange}
-      />
-      <label htmlFor="gpa">GPA</label>
-      <input
-        name="gpa"
-        value={formInputs.gpa}
-        placeholder="GPA"
-        onChange={handleChange}
-      />
-      <button type="submit">Add New Student</button>
-    </form>
+    <div id="add-student">
+      <h2>Add Student</h2>
+      <form id="add-student-form" onSubmit={handleSubmit}>
+        <label htmlFor="firstName">First Name</label>
+        <input
+          name="firstName"
+          value={formInputs.firstName}
+          placeholder="First Name"
+          onChange={handleChange}
+        />
+        <p>{formErrors.firstName}</p>
+        <label htmlFor="lastName">Last Name</label>
+        <input
+          name="lastName"
+          value={formInputs.lastName}
+          placeholder="Last Name"
+          onChange={handleChange}
+        />
+        <p>{formErrors.lastName}</p>
+        <label htmlFor="email">Email</label>
+        <input
+          name="email"
+          value={formInputs.email}
+          placeholder="Email"
+          onChange={handleChange}
+        />
+        <p>{formErrors.email}</p>
+        <label htmlFor="imageUrl">Image</label>
+        <input
+          name="imageUrl"
+          value={formInputs.imageUrl}
+          placeholder="Image"
+          onChange={handleChange}
+        />
+        <p></p>
+        <label htmlFor="gpa">GPA</label>
+        <input
+          name="gpa"
+          value={formInputs.gpa}
+          placeholder="GPA"
+          onChange={handleChange}
+        />
+        <p></p>
+        <button type="submit">Add New Student</button>
+      </form>
+    </div>
   );
 }
 

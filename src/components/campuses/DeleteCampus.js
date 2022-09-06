@@ -7,11 +7,7 @@ function DeleteCampus(props) {
   const handleDelete = () => {
     dispatch(deleteCampus(props.campusId));
   };
-  return (
-    <button id="delete-campus" onClick={handleDelete}>
-      X
-    </button>
-  );
+  return <button onClick={handleDelete}>X</button>;
 }
 
 export default DeleteCampus;

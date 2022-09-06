@@ -34,41 +34,44 @@ function UpdateCampusForm(props) {
   };
 
   return (
-    <form id="update-campus" onSubmit={handleSubmit}>
-      <label htmlFor="name">Name </label>
-      <input
-        id="name"
-        name="name"
-        value={formInputs.name || ""}
-        onChange={handleChange}
-      />
+    <div>
+      <form id="update-campus" onSubmit={handleSubmit}>
+        <h2>Update Campus</h2>
+        <label htmlFor="name">Name </label>
+        <input
+          id="name"
+          name="name"
+          value={formInputs.name || ""}
+          onChange={handleChange}
+        />
 
-      <label htmlFor="address">Address </label>
-      <input
-        id="address"
-        name="address"
-        value={formInputs.address || ""}
-        onChange={handleChange}
-      />
+        <label htmlFor="address">Address </label>
+        <input
+          id="address"
+          name="address"
+          value={formInputs.address || ""}
+          onChange={handleChange}
+        />
 
-      <label htmlFor="description">Description </label>
-      <input
-        id="description"
-        name="description"
-        value={formInputs.description || ""}
-        onChange={handleChange}
-      />
+        <label htmlFor="description">Description </label>
+        <input
+          id="description"
+          name="description"
+          value={formInputs.description || ""}
+          onChange={handleChange}
+        />
 
-      <label htmlFor="imageUrl">Image </label>
-      <input
-        id="imageUrl"
-        name="imageUrl"
-        value={formInputs.imageUrl || ""}
-        onChange={handleChange}
-      />
+        <label htmlFor="imageUrl">Image </label>
+        <input
+          id="imageUrl"
+          name="imageUrl"
+          value={formInputs.imageUrl || ""}
+          onChange={handleChange}
+        />
 
-      <button type="submit">Update Campus</button>
-    </form>
+        <button type="submit">Update Campus</button>
+      </form>
+    </div>
   );
 }
 
