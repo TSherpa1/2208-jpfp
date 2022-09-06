@@ -2,6 +2,7 @@
 * {
   box-sizing: border-box;
   margin: 0px;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 
 body {
@@ -21,11 +22,11 @@ img {
   background-color: rgb(3, 118, 110);
   height: 70px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 .navbar .link {
-  color: antiquewhite;
+  color: green;
   padding: 0 2rem;
   text-decoration: none;
 }
@@ -133,6 +134,7 @@ img {
   margin-top: 40px;
   display: flex;
   flex-direction: column;
+  text-align: center;
 }
 
 #single-student img {
@@ -140,16 +142,21 @@ img {
   margin-top: 15px;
 }
 
+#student-info * {
+  margin-top: 20px;
+}
+
 /*update student form*/
 #update-student {
   margin-top: 70px;
   display: flex;
   flex-direction: column;
-  width: 600px;
+  width: 800px;
   background-color: rgb(18, 200, 149);
   padding: 30px;
   height: fit-content;
   border-radius: 8px;
+  margin-left: 510px;
 }
 
 #update-student h2 {
@@ -231,6 +238,7 @@ img {
   height: 100%;
   margin-left: 30px;
   margin-top: 20px;
+  text-align: center;
   display: flex;
   flex-direction: column;
 }
@@ -239,16 +247,19 @@ img {
 }
 #campus-info p {
   width: 800px;
+  margin-left: 540px;
 }
 
 #update-campus {
   display: flex;
   flex-direction: column;
   margin-top: 50px;
-  margin-left: 20px;
+  /* margin-left: 20px; */
+  text-align: center;
   margin-bottom: 30px;
-  width: 600px;
+  width: 800px;
   background-color: rgb(18, 200, 149);
+  margin-left: 540px;
   padding: 30px;
   height: fit-content;
   border-radius: 8px;

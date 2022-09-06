@@ -1,24 +1,29 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function Navbar() {
+  const campuses = useSelector((state) => state.allCampuses);
+  const students = useSelector((state) => state.allStudents);
+  console.log(campuses);
+  console.log(students);
   return (
     <div className="navbar">
-      <Link className="link" to="/">
-        Home
-      </Link>
-      <ul>
-        <li>
-          <Link className="link" to="/campuses">
-            All Campuses
-          </Link>
-        </li>
-        <li>
-          <Link className="link" to="/students">
-            All Students
-          </Link>
-        </li>
-      </ul>
+      <button>
+        <Link className="link" to="/">
+          Home
+        </Link>
+      </button>
+      <button>
+        <Link className="link" to="/campuses">
+          All Campuses ({campuses && campuses.length})
+        </Link>
+      </button>
+      <button>
+        <Link className="link" to="/students">
+          All Students ({students && students.length})
+        </Link>
+      </button>
     </div>
   );
 }
