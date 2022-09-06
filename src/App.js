@@ -7,6 +7,7 @@ import {
   Navbar,
   SingleCampus,
   SingleStudent,
+  NotFoundPage,
 } from "./components";
 import { useDispatch } from "react-redux";
 import { getCampuses } from "./store/campusStores/campusesStore";
@@ -30,7 +31,7 @@ function App() {
         <Route path={"/students"} element={<Students />} />
         <Route path={"/students/:id"} element={<SingleStudent />} />
         <Route path={"/campuses/:id"} element={<SingleCampus />} />
-        <Route path={"*"} element={<h1>Page Not Found!</h1>} />
+        <Route path={"*"} element={<NotFoundPage />} />
       </Routes>
     </div>
   );

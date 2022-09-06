@@ -76,7 +76,7 @@ function AddCampusForm() {
           placeholder="Description"
           onChange={handleChange}
         />
-
+        <p></p>
         <label htmlFor="imageUrl">Image</label>
         <input
           id="imageUrl"
@@ -85,7 +85,7 @@ function AddCampusForm() {
           placeholder="Image"
           onChange={handleChange}
         />
-
+        <p></p>
         <button type="submit">Add New Campus</button>
       </form>
     </div>
