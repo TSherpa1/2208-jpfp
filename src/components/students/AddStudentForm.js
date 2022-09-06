@@ -6,7 +6,6 @@ import { useSelector } from "react-redux";
 function AddStudentForm() {
   const campuses = useSelector((state) => state.allCampuses);
   const students = useSelector((state) => state.allStudents);
-  console.log(students);
   const studentValues = {
     firstName: "",
     lastName: "",

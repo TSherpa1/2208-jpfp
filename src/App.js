@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Route, Routes, Link } from "react-router-dom";
+import { Route, Routes, Link, useParams } from "react-router-dom";
 import {
   Campuses,
   HomePage,
@@ -19,6 +19,7 @@ function App() {
     dispatch(getCampuses());
     dispatch(getStudents());
   }, [dispatch]);
+  const params = useParams();
 
   return (
     <div>

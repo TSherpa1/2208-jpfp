@@ -1,86 +1,76 @@
-/*General*/
 * {
   box-sizing: border-box;
   margin: 0px;
   font-family: Georgia, "Times New Roman", Times, serif;
 }
-
 body {
   background: linear-gradient(#ceefd3, #2a9489);
 }
-
 li {
   list-style: none;
 }
-
 img {
   border-radius: 8px;
 }
-
-/*Navbar*/
-.navbar {
-  background-color: rgb(3, 118, 110);
-  height: 70px;
+/*all campuses page*/
+#all-campuses {
   display: flex;
-  flex-direction: row;
   justify-content: space-around;
-  align-items: center;
+  margin-bottom: 50px;
+  margin-right: 80px;
 }
-.link {
-  color: green;
-  padding: 0 2rem;
-  text-decoration: none;
+/*list of campuses*/
+#campus-list {
+  width: 700px;
+  margin-top: 20px;
 }
-
-.navbar .link:hover {
-  color: blue;
+#campus-list * {
+  margin-bottom: 10px;
 }
-
-/* .navbar button {
-  margin-left: 120px;
-} */
-
-#homepage {
-  height: 100vh;
-  text-align: center;
-}
-
-#homepage h1 {
+#campus-list li {
+  border-radius: 25px;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   margin-top: 50px;
 }
-
-#homepage img {
-  margin-top: 30px;
-  margin-left: 300px;
-  margin-bottom: 30px;
-  align-items: center;
-}
-
-#homepage-content {
+/*add campus form*/
+#add-campus {
   display: flex;
   flex-direction: column;
+  width: 500px;
+  margin-top: 100px;
+  background-color: #12c895;
+  padding: 30px;
+  height: fit-content;
+  border-radius: 8px;
+}
+#add-campus-form {
+  display: flex;
+  flex-direction: column;
+}
+#add-campus-form input {
+  margin-bottom: 10px;
+}
+#add-campus-form p {
+  margin-bottom: 20px;
+}
+#add-campus h2 {
+  margin-bottom: 20px;
+}
+/*delete campus div*/
+#delete-campus {
+  display: flex;
   justify-content: space-between;
+  margin-left: 20px;
+  height: 50px;
+  width: fit-content;
 }
-#links {
-  display: flex;
-  justify-content: space-around;
-  border-top: 50px;
-  text-decoration: none;
+#delete-campus button {
+  height: 22px;
+  margin-left: 20px;
 }
-
-#not-found-page {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-}
-
-#not-found-page img {
-  height: 400px;
-  width: 600px;
-}
-
 /*All Students div*/
 #all-students {
   display: flex;
@@ -89,7 +79,6 @@ img {
   margin-bottom: 30px;
   height: 100%;
 }
-
 /*List of students*/
 #students-list {
   width: 700px;
@@ -111,7 +100,6 @@ img {
   justify-content: space-around;
   margin-top: 50px;
 }
-
 /*Div conatining x button and remove student text*/
 #remove-student {
   display: flex;
@@ -120,7 +108,6 @@ img {
   width: 200px;
   height: 50px;
 }
-
 #remove-student button {
   height: 22px;
   margin-top: 28px;
@@ -129,7 +116,9 @@ img {
 #remove-student h4 {
   margin-top: 20px;
 }
-
+.home-link {
+  align-self: flex-end;
+}
 /*Div containing add student form*/
 #add-student {
   display: flex;
@@ -137,151 +126,78 @@ img {
   width: 500px;
   margin-top: 100px;
   margin-right: 80px;
-  background-color: rgb(18, 200, 149);
+  background-color: #12c895;
   padding: 30px;
   height: fit-content;
   border-radius: 8px;
 }
-
 #add-student-form {
   display: flex;
   flex-direction: column;
 }
-
 #add-student-form input {
   margin-bottom: 10px;
 }
-
 #add-student-form p {
   margin-bottom: 20px;
 }
-
 #add-student-form select {
   margin-bottom: 10px;
 }
-
 #add-student h2 {
   margin-bottom: 20px;
 }
-
-.home-link {
-  align-self: flex-end;
-}
-
-/*Single Student page*/
-#single-student {
+#homepage {
   height: 100vh;
-  margin-top: 40px;
-  margin-right: 60px;
-  display: flex;
-  flex-direction: column;
   text-align: center;
 }
-
-#single-student img {
-  border-radius: 50%;
-  margin-top: 15px;
-}
-
-#student-info * {
-  margin-top: 20px;
-}
-
-/*update student form*/
-#update-student {
-  margin-top: 70px;
-  display: flex;
-  flex-direction: column;
-  width: 800px;
-  background-color: rgb(18, 200, 149);
-  padding: 30px;
-  height: fit-content;
-  border-radius: 8px;
-  margin-left: 518px;
-}
-
-#update-student h2 {
-  margin-bottom: 20px;
-}
-
-#update-student input {
-  margin-bottom: 10px;
-}
-
-#update-student select {
-  margin-bottom: 10px;
-}
-
-/*all campuses page*/
-
-#all-campuses {
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 50px;
-  margin-right: 80px;
-}
-
-/*list of campuses*/
-#campus-list {
-  width: 700px;
-
-  margin-top: 20px;
-}
-#campus-list * {
-  margin-bottom: 10px;
-}
-#campus-list li {
-  border-radius: 25px;
-  width: 500px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+#homepage h1 {
   margin-top: 50px;
 }
-
-/*add campus form*/
-#add-campus {
+#homepage img {
+  margin-top: 30px;
+  margin-left: 300px;
+  margin-bottom: 30px;
+  align-items: center;
+}
+#homepage-content {
   display: flex;
   flex-direction: column;
-  width: 500px;
-  margin-top: 100px;
-  background-color: rgb(18, 200, 149);
-  padding: 30px;
-  height: fit-content;
-  border-radius: 8px;
-}
-
-#add-campus-form {
-  display: flex;
-  flex-direction: column;
-}
-
-#add-campus-form input {
-  margin-bottom: 10px;
-}
-
-#add-campus-form p {
-  margin-bottom: 20px;
-}
-
-#add-campus h2 {
-  margin-bottom: 20px;
-}
-
-/*delete campus div*/
-#delete-campus {
-  display: flex;
   justify-content: space-between;
-  margin-left: 20px;
-  height: 50px;
-  width: fit-content;
 }
-
-#delete-campus button {
-  height: 22px;
-  margin-left: 20px;
+#links {
+  display: flex;
+  justify-content: space-around;
+  border-top: 50px;
+  text-decoration: none;
 }
-
+.navbar {
+  background-color: #03766e;
+  height: 70px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.link {
+  color: green;
+  padding: 0 2rem;
+  text-decoration: none;
+}
+.navbar .link:hover {
+  color: blue;
+}
+#not-found-page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+#not-found-page img {
+  height: 400px;
+  width: 600px;
+}
 #single-campus {
   height: 100%;
   margin-top: 20px;
@@ -297,7 +213,6 @@ img {
   width: 800px;
   margin-left: 520px;
 }
-
 #update-campus {
   display: flex;
   flex-direction: column;
@@ -305,23 +220,57 @@ img {
   text-align: center;
   margin-bottom: 30px;
   width: 800px;
-  background-color: rgb(18, 200, 149);
+  background-color: #12c895;
   margin-left: 520px;
   padding: 30px;
   height: fit-content;
   border-radius: 8px;
 }
-
 #update-campus input {
   margin-bottom: 10px;
 }
-
 #enrolled-students {
   margin-top: 20px;
   padding: 0px;
 }
-
 #enrolled-students li {
   margin-top: 5px;
   margin-bottom: 5px;
+}
+/*Single Student page*/
+#single-student {
+  height: 100vh;
+  margin-top: 40px;
+  margin-right: 60px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+#single-student img {
+  border-radius: 50%;
+  margin-top: 15px;
+}
+#student-info * {
+  margin-top: 20px;
+}
+/*update student form*/
+#update-student {
+  margin-top: 70px;
+  display: flex;
+  flex-direction: column;
+  width: 800px;
+  background-color: #12c895;
+  padding: 30px;
+  height: fit-content;
+  border-radius: 8px;
+  margin-left: 518px;
+}
+#update-student h2 {
+  margin-bottom: 20px;
+}
+#update-student input {
+  margin-bottom: 10px;
+}
+#update-student select {
+  margin-bottom: 10px;
 }
