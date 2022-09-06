@@ -177,12 +177,20 @@ img {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  align-self: center;
   align-items: center;
 }
 .link {
   color: green;
   padding: 0 2rem;
   text-decoration: none;
+  width: auto;
+}
+.navbar button {
+  display: flex;
+  width: 115px;
+  justify-content: center;
+  align-items: center;
 }
 .navbar .link:hover {
   color: blue;
