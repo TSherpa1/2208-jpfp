@@ -20,8 +20,8 @@ function SingleCampus() {
   console.log("campus length", campuses.length);
 
   useEffect(() => {
-    if (campus.length > 0 && params.id > campuses.length) {
-      navigate("*");
+    if (campuses.length > 0 && params.id > campuses.length) {
+      navigate("/campusNotFound");
     }
   }, [campuses.length]);
 

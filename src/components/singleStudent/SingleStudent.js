@@ -17,7 +17,7 @@ function SingleStudent() {
 
   useEffect(() => {
     if (students.length > 0 && params.id > students.length) {
-      navigate("*");
+      navigate("/studentNotFound");
     }
   }, [students.length]);
 

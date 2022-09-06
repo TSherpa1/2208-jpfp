@@ -5,6 +5,8 @@ import Navbar from "./Navbar";
 import SingleStudent from "./singleStudent/SingleStudent";
 import SingleCampus from "./singleCampus/SingleCampus";
 import NotFoundPage from "./NotFoundPage";
+import StudentNotFound from "./StudentNotFound";
+import CampusNotFound from "./CampusNotFound";
 
 export {
   Campuses,
@@ -14,4 +16,6 @@ export {
   SingleStudent,
   SingleCampus,
   NotFoundPage,
+  StudentNotFound,
+  CampusNotFound,
 };
